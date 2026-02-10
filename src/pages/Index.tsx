@@ -93,7 +93,7 @@ const Index = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-16 bg-primary text-primary-foreground">
+      <section className="py-16 text-primary-foreground bg-primary">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[{
