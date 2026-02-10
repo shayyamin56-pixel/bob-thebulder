@@ -42,8 +42,8 @@ const Index = () => {
       }} />
         <div className="absolute inset-0 bg-primary/75" />
         <div className="relative z-10 text-center text-primary-foreground px-4 py-20">
-          <h1 className="text-5xl md:text-7xl font-rubik font-black mb-4 animate-fade-in-up">
-            בוא הבנאי המקורי  
+          <h1 className="text-5xl font-rubik font-black mb-4 animate-fade-in-up text-secondary md:text-5xl">
+            בוא הבנאי   
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90 max-w-2xl mx-auto" style={{
           animationDelay: "0.2s"
