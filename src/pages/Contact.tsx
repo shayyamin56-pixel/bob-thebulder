@@ -33,7 +33,7 @@ const Contact = () => {
       {/* Hero */}
       <section className="bg-primary text-primary-foreground py-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-rubik font-black mb-4">צור קשר</h1>
+          <h1 className="text-4xl md:text-5xl font-heebo font-black mb-4">צור קשר</h1>
           <p className="text-xl text-primary-foreground/80">נשמח לשמוע מכם ולתת הצעת מחיר</p>
         </div>
       </section>
@@ -44,7 +44,7 @@ const Contact = () => {
             {/* Form */}
             <Card className="shadow-lg">
               <CardContent className="p-8">
-                <h2 className="text-2xl font-rubik font-bold text-primary mb-6">השאירו פרטים</h2>
+                <h2 className="text-2xl font-heebo font-bold text-primary mb-6">השאירו פרטים</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
                     <Label htmlFor="name">שם מלא *</Label>
@@ -98,7 +98,7 @@ const Contact = () => {
 
             {/* Contact Info */}
             <div className="space-y-6">
-              <h2 className="text-2xl font-rubik font-bold text-primary mb-2">פרטי התקשרות</h2>
+              <h2 className="text-2xl font-heebo font-bold text-primary mb-2">פרטי התקשרות</h2>
               <p className="text-muted-foreground mb-6">
                 אתם מוזמנים ליצור קשר בכל דרך שנוחה לכם. אנחנו זמינים ונשמח לעזור!
               </p>
@@ -109,7 +109,7 @@ const Contact = () => {
                       <item.icon className="h-5 w-5 text-secondary" />
                     </div>
                     <div>
-                      <h3 className="font-rubik font-semibold text-primary">{item.label}</h3>
+                      <h3 className="font-heebo font-semibold text-primary">{item.label}</h3>
                       <p className="text-muted-foreground text-sm whitespace-pre-line">{item.value}</p>
                     </div>
                   </CardContent>
@@ -118,7 +118,7 @@ const Contact = () => {
 
               <Card className="bg-secondary/10 border-secondary/30">
                 <CardContent className="p-5 text-center">
-                  <p className="font-rubik font-bold text-secondary text-lg">🎉 10% הנחה למזמינים דרך האתר!</p>
+                  <p className="font-heebo font-bold text-secondary text-lg">🎉 10% הנחה למזמינים דרך האתר!</p>
                   <p className="text-sm text-muted-foreground mt-1">ציינו שהגעתם דרך האתר ותקבלו הנחה מיוחדת</p>
                 </CardContent>
               </Card>

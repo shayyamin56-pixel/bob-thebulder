@@ -39,11 +39,11 @@ const DiscountPopup = () => {
           <div className="mx-auto mb-2 bg-secondary/10 rounded-full p-4 w-fit">
             <Percent className="h-10 w-10 text-secondary" />
           </div>
-          <DialogTitle className="text-2xl font-rubik text-primary">
+          <DialogTitle className="text-2xl font-heebo text-primary">
             🎉 מבצע מיוחד!
           </DialogTitle>
           <DialogDescription className="text-lg mt-2">
-            <span className="text-3xl font-bold font-rubik text-secondary block my-3">
+            <span className="text-3xl font-bold font-heebo text-secondary block my-3">
               10% הנחה
             </span>
             למזמינים דרך האתר שלנו!

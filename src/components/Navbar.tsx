@@ -21,7 +21,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2">
             <HardHat className="h-8 w-8 text-secondary" />
-            <span className="text-xl font-rubik font-bold text-primary-foreground">
+            <span className="text-xl font-heebo font-bold text-primary-foreground">
               בוב הבנאי
             </span>
           </Link>
