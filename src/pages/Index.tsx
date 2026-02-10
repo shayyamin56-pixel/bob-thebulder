@@ -43,7 +43,7 @@ const Index = () => {
               </Button>
             </Link>
             <Link to="/about">
-              <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-bold text-lg px-8 py-6">
+              <Button size="lg" variant="outline" className="border-secondary bg-transparent text-secondary hover:bg-secondary/10 font-bold text-lg px-8 py-6">
                 קרא עלינו
               </Button>
             </Link>
