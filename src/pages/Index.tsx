@@ -93,9 +93,9 @@ const Index = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-16 text-primary-foreground bg-primary">
+      <section className="py-24 text-primary-foreground bg-primary">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
             {[{
             num: "15+",
             label: "שנות ניסיון"
@@ -109,8 +109,8 @@ const Index = () => {
             num: "24/7",
             label: "זמינות"
           }].map(stat => <div key={stat.label}>
-                <div className="text-4xl md:text-5xl font-rubik font-black text-secondary mb-1">{stat.num}</div>
-                <div className="text-primary-foreground/70 text-sm">{stat.label}</div>
+                <div className="text-6xl md:text-7xl font-rubik font-black text-secondary mb-2">{stat.num}</div>
+                <div className="text-primary-foreground/70 text-lg">{stat.label}</div>
               </div>)}
           </div>
         </div>
