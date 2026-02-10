@@ -10,7 +10,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <HardHat className="h-7 w-7 text-secondary" />
-              <span className="text-lg font-rubik font-bold">בוב הבנאי</span>
+              <span className="text-lg font-heebo font-bold">בוב הבנאי</span>
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed">
               שירותי בנייה ושיפוצים מקצועיים. מעל 15 שנות ניסיון בתחום. מחויבים לאיכות ולשביעות רצון הלקוח.
@@ -19,7 +19,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-rubik font-bold text-lg mb-4 text-secondary">קישורים מהירים</h3>
+            <h3 className="font-heebo font-bold text-lg mb-4 text-secondary">קישורים מהירים</h3>
             <div className="space-y-2">
               <Link to="/" className="block text-sm text-primary-foreground/70 hover:text-secondary transition-colors">דף הבית</Link>
               <Link to="/about" className="block text-sm text-primary-foreground/70 hover:text-secondary transition-colors">אודות</Link>
@@ -29,7 +29,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-rubik font-bold text-lg mb-4 text-secondary">צור קשר</h3>
+            <h3 className="font-heebo font-bold text-lg mb-4 text-secondary">צור קשר</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-sm text-primary-foreground/70">
                 <Phone className="h-4 w-4 text-secondary" />

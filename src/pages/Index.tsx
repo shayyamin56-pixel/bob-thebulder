@@ -42,7 +42,7 @@ const Index = () => {
       }} />
         <div className="absolute inset-0 bg-primary/75" />
         <div className="relative z-10 text-center text-primary-foreground px-4 py-20">
-          <h1 className="text-5xl font-rubik font-black mb-4 animate-fade-in-up text-secondary md:text-5xl">
+          <h1 className="text-5xl font-heebo font-black mb-4 animate-fade-in-up text-secondary md:text-5xl">
             בוא הבנאי   
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90 max-w-2xl mx-auto" style={{
@@ -72,7 +72,7 @@ const Index = () => {
       {/* Services Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-rubik font-bold text-center text-primary mb-4">
+          <h2 className="text-3xl md:text-4xl font-heebo font-bold text-center text-primary mb-4">
             השירותים שלנו
           </h2>
           <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
@@ -84,7 +84,7 @@ const Index = () => {
                   <div className="mx-auto mb-4 bg-secondary/10 rounded-full p-4 w-fit group-hover:bg-secondary/20 transition-colors">
                     <service.icon className="h-8 w-8 text-secondary" />
                   </div>
-                  <h3 className="font-rubik font-bold text-lg mb-2 text-primary">{service.title}</h3>
+                  <h3 className="font-heebo font-bold text-lg mb-2 text-primary">{service.title}</h3>
                   <p className="text-muted-foreground text-sm">{service.desc}</p>
                 </CardContent>
               </Card>)}
@@ -109,7 +109,7 @@ const Index = () => {
             num: "24/7",
             label: "זמינות"
           }].map(stat => <div key={stat.label}>
-                <div className="text-6xl md:text-7xl font-rubik font-black text-secondary mb-2">{stat.num}</div>
+                <div className="text-6xl md:text-7xl font-heebo font-black text-secondary mb-2">{stat.num}</div>
                 <div className="text-primary-foreground/70 text-lg">{stat.label}</div>
               </div>)}
           </div>
@@ -119,7 +119,7 @@ const Index = () => {
       {/* Testimonials */}
       <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-rubik font-bold text-center text-primary mb-12">
+          <h2 className="text-3xl md:text-4xl font-heebo font-bold text-center text-primary mb-12">
             מה הלקוחות אומרים
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -128,7 +128,7 @@ const Index = () => {
                   <Quote className="h-8 w-8 text-secondary/30 mb-3" />
                   <p className="text-foreground mb-4 leading-relaxed">{t.text}</p>
                   <div className="flex items-center justify-between">
-                    <span className="font-rubik font-semibold text-primary">{t.name}</span>
+                    <span className="font-heebo font-semibold text-primary">{t.name}</span>
                     <div className="flex gap-0.5">
                       {Array.from({
                     length: t.rating
@@ -144,7 +144,7 @@ const Index = () => {
       {/* CTA */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-rubik font-bold text-secondary-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-heebo font-bold text-secondary-foreground mb-4">
             מוכנים להתחיל?
           </h2>
           <p className="text-secondary-foreground/80 mb-8 text-lg">
