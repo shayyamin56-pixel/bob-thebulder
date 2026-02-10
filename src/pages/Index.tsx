@@ -42,7 +42,7 @@ const Index = () => {
       }} />
         <div className="absolute inset-0 bg-primary/75" />
         <div className="relative z-10 text-center text-primary-foreground px-4 py-20">
-          <h1 className="text-5xl font-heebo font-black mb-4 animate-fade-in-up text-secondary md:text-5xl">
+          <h1 className="text-5xl font-heebo font-black mb-4 animate-fade-in-up md:text-5xl text-primary-foreground">
             בוא הבנאי   
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90 max-w-2xl mx-auto" style={{
