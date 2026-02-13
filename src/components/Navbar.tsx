@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, HardHat } from "lucide-react";
+import { Menu, X, HardHat, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { user, signOut } = useAuth();
 
   const links = [
     { to: "/", label: "דף הבית" },
@@ -41,11 +43,39 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <Link to="/contact">
-              <Button variant="secondary" size="sm" className="mr-2 font-semibold">
-                קבל הצעת מחיר
-              </Button>
-            </Link>
+            {user ? (
+              <>
+                <Link to="/dashboard">
+                  <Button variant="ghost" size="sm" className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10">
+                    <User className="h-4 w-4 ml-1" />
+                    האזור שלי
+                  </Button>
+                </Link>
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="mr-2 font-semibold"
+                  onClick={signOut}
+                >
+                  <LogOut className="h-4 w-4 ml-1" />
+                  התנתק
+                </Button>
+              </>
+            ) : (
+              <>
+                <Link to="/auth">
+                  <Button variant="ghost" size="sm" className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10">
+                    <User className="h-4 w-4 ml-1" />
+                    התחברות
+                  </Button>
+                </Link>
+                <Link to="/contact">
+                  <Button variant="secondary" size="sm" className="mr-2 font-semibold">
+                    קבל הצעת מחיר
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile toggle */}
@@ -74,11 +104,39 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <Link to="/contact" onClick={() => setIsOpen(false)}>
-              <Button variant="secondary" size="sm" className="w-full mt-2 font-semibold">
-                קבל הצעת מחיר
-              </Button>
-            </Link>
+            {user ? (
+              <>
+                <Link to="/dashboard" onClick={() => setIsOpen(false)}>
+                  <Button variant="ghost" size="sm" className="w-full justify-start text-primary-foreground/80">
+                    <User className="h-4 w-4 ml-1" />
+                    האזור שלי
+                  </Button>
+                </Link>
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="w-full mt-2 font-semibold"
+                  onClick={() => { signOut(); setIsOpen(false); }}
+                >
+                  <LogOut className="h-4 w-4 ml-1" />
+                  התנתק
+                </Button>
+              </>
+            ) : (
+              <>
+                <Link to="/auth" onClick={() => setIsOpen(false)}>
+                  <Button variant="ghost" size="sm" className="w-full justify-start text-primary-foreground/80">
+                    <User className="h-4 w-4 ml-1" />
+                    התחברות
+                  </Button>
+                </Link>
+                <Link to="/contact" onClick={() => setIsOpen(false)}>
+                  <Button variant="secondary" size="sm" className="w-full mt-2 font-semibold">
+                    קבל הצעת מחיר
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
         )}
       </div>
