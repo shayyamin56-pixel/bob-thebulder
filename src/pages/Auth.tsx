@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
@@ -16,8 +16,12 @@ const Auth = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
+  const isSubmittingRef = useRef(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmittingRef.current) return;
+    isSubmittingRef.current = true;
     setLoading(true);
 
     const { error } = isLogin
@@ -25,6 +29,7 @@ const Auth = () => {
       : await signUp(email, password);
 
     setLoading(false);
+    isSubmittingRef.current = false;
 
     if (error) {
       toast({
