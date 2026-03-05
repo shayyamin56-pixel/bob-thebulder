@@ -6,19 +6,37 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.phone.trim()) {
       toast({ title: "שגיאה", description: "אנא מלא שם וטלפון", variant: "destructive" });
       return;
     }
-    toast({ title: "הפנייה נשלחה בהצלחה! ✅", description: "ניצור אתכם קשר בהקדם" });
-    setForm({ name: "", phone: "", email: "", message: "" });
+    if (sending) return;
+    setSending(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke("send-lead-email", {
+        body: form,
+      });
+
+      if (error) throw error;
+
+      toast({ title: "הפנייה נשלחה בהצלחה! ✅", description: "ניצור אתכם קשר בהקדם" });
+      setForm({ name: "", phone: "", email: "", message: "" });
+    } catch (err) {
+      console.error("Error sending lead:", err);
+      toast({ title: "שגיאה בשליחה", description: "נסו שוב מאוחר יותר", variant: "destructive" });
+    } finally {
+      setSending(false);
+    }
   };
 
   const contactInfo = [
@@ -89,8 +107,8 @@ const Contact = () => {
                       maxLength={1000}
                     />
                   </div>
-                  <Button type="submit" size="lg" className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold text-lg py-6">
-                    שלח פנייה
+                  <Button type="submit" size="lg" disabled={sending} className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold text-lg py-6">
+                    {sending ? "שולח..." : "שלח פנייה"}
                   </Button>
                 </form>
               </CardContent>
