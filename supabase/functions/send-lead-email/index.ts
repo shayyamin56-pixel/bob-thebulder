@@ -58,8 +58,8 @@ serve(async (req) => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Bob The Builder <onboarding@resend.dev>",
-        to: ["SHAYYAMIN56@GMAIL.COM"],
+        from: "onboarding@resend.dev",
+        to: ["shayyamin56@gmail.com"],
         subject: `ליד חדש מהאתר: ${name}`,
         html: htmlContent,
       }),
