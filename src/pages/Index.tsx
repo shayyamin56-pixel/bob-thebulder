@@ -142,19 +142,35 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-secondary">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-heebo font-bold text-secondary-foreground mb-4">
+      <section className="relative py-24 overflow-hidden">
+        {/* Background with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary to-accent" />
+        {/* Decorative shapes */}
+        <div className="absolute top-0 left-0 w-72 h-72 bg-primary/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full translate-x-1/3 translate-y-1/3" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full" />
+        
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="inline-block bg-primary/15 backdrop-blur-sm rounded-full px-5 py-2 mb-6">
+            <span className="text-sm font-heebo font-bold text-primary">🎉 10% הנחה למזמינים דרך האתר</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-heebo font-black text-primary mb-5">
             מוכנים להתחיל?
           </h2>
-          <p className="text-secondary-foreground/80 mb-8 text-lg">
-            צרו קשר עכשיו וקבלו הצעת מחיר ללא התחייבות
+          <p className="text-primary/70 mb-10 text-lg md:text-xl max-w-lg mx-auto leading-relaxed">
+            צרו קשר עכשיו וקבלו הצעת מחיר מקצועית ללא התחייבות
           </p>
-          <Link to="/contact">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg px-10 py-6">
-              צור קשר עכשיו
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link to="/contact">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg px-10 py-7 rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 hover:-translate-y-0.5">
+                צור קשר עכשיו →
+              </Button>
+            </Link>
+            <a href="tel:050-1234567" className="text-primary/80 hover:text-primary font-heebo font-semibold transition-colors flex items-center gap-2">
+              <span className="bg-primary/10 rounded-full p-2">📞</span>
+              או התקשרו: 050-1234567
+            </a>
+          </div>
         </div>
       </section>
     </main>;
