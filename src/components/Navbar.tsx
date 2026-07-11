@@ -12,7 +12,8 @@ const Navbar = () => {
   const links = [
     { to: "/", label: "דף הבית" },
     { to: "/about", label: "אודות" },
-    { to: "/contact", label: "צור קשר" },
+    { to: "/games", label: "משחקים" },
+    { to: "/contact", label: "צור קשר" }
   ];
 
   const isActive = (path: string) => location.pathname === path;
