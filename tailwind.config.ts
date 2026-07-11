@@ -14,16 +14,12 @@ export default {
   	},
   	extend: {
   		fontFamily: {
-  			heebo: [
-  				'Heebo',
-  				'sans-serif'
-  			],
   			rubik: [
   				'Rubik',
   				'sans-serif'
   			],
   			sans: [
-  				'Raleway',
+  				'Rubik',
   				'ui-sans-serif',
   				'system-ui',
   				'sans-serif',
