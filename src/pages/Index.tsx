@@ -24,7 +24,7 @@ const Index = () => {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={heroBg}
+            src={heroBg.url}
             alt="אתר בנייה ושיפוץ"
             className="w-full h-full object-cover"
             fetchPriority="high"
