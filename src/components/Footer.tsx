@@ -109,4 +109,19 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="border-t border-primary-foreground/10 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-primary-foreground/40">
-            © {new Date().getFullYear()}
+            © {new Date().getFullYear()} בוב הבנאי. כל הזכויות שמורות.
+          </p>
+          <button
+            onClick={scrollToTop}
+            aria-label="חזור למעלה"
+            className="bg-primary-foreground/10 hover:bg-secondary/30 transition-colors rounded-full p-2 group"
+          >
+            <ArrowUp className="h-4 w-4 text-primary-foreground/60 group-hover:text-secondary transition-colors" />
+          </button>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

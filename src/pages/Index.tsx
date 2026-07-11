@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Home, Wrench, PaintBucket, Building2, Star, Quote } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero-bg.jpg.asset.json";
 
 const services = [
   { icon: Home, title: "שיפוצים כלליים", desc: "שיפוץ דירות ובתים מקצה לקצה, כולל תכנון וביצוע" },
@@ -24,7 +24,7 @@ const Index = () => {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={heroBg}
+            src={heroBg.url}
             alt="אתר בנייה ושיפוץ"
             className="w-full h-full object-cover"
             fetchPriority="high"
