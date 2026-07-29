@@ -3,21 +3,27 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import DiscountPopup from "./components/DiscountPopup";
 import Dashboard from "./pages/Dashboard";
+import { HeroScrollDemo } from "./components/HeroScrollDemo";
 
-// Mock pages to ensure router works perfectly
+// Home page with the integrated ContainerScroll component
 const Home = () => (
-  <div className="container mx-auto px-4 py-16 text-center">
-    <h1 className="text-5xl font-black text-primary mb-6">בוב הבנאי - בנייה ושיפוצים</h1>
-    <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-      שירותי בנייה, שיפוצים, עבודות גמר ואיטום ברמה הגבוהה ביותר. אמינות, מקצועיות ועמידה בלוחות זמנים.
-    </p>
-    <div className="flex justify-center gap-4">
-      <a href="/dashboard" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-6 py-3 rounded-lg transition-colors">
-        כניסה למערכת CRM לניהול לקוחות
-      </a>
-      <a href="/contact" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 py-3 rounded-lg transition-colors">
-        צור קשר
-      </a>
+  <div className="bg-background">
+    {/* Hero Scroll Section */}
+    <HeroScrollDemo />
+
+    {/* Quick Actions / CTA Section */}
+    <div className="container mx-auto px-4 pb-24 text-center -mt-10 md:-mt-20 relative z-10">
+      <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+        שירותי בנייה, שיפוצים, עבודות גמר ואיטום ברמה הגבוהה ביותר. אמינות, מקצועיות ועמידה בלוחות זמנים.
+      </p>
+      <div className="flex flex-wrap justify-center gap-4">
+        <a href="/dashboard" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-6 py-3 rounded-lg transition-colors shadow-lg">
+          כניסה למערכת CRM לניהול לקוחות
+        </a>
+        <a href="/contact" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 py-3 rounded-lg transition-colors shadow-lg">
+          צור קשר לקבלת הצעת מחיר
+        </a>
+      </div>
     </div>
   </div>
 );
@@ -68,7 +74,7 @@ const Contact = () => (
   </div>
 );
 
-function App() {
+function App() { 
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
