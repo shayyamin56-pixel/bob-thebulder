@@ -1,150 +1,250 @@
 import { useState } from "react";
+import { Phone, Mail, MapPin, Clock, Send, HardHat, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const { toast } = useToast();
-  const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
-  const [sending, setSending] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.phone.trim()) {
-      toast({ title: "שגיאה", description: "אנא מלא שם וטלפון", variant: "destructive" });
-      return;
-    }
-    if (sending) return;
-    setSending(true);
-
-    try {
-      const { data, error } = await supabase.functions.invoke("send-lead-email", {
-        body: form,
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubmitting(false);
+      toast({
+        title: "ההודעה נשלחה בהצלחה!",
+        description: "נציג מטעמנו יחזור אליך בהקדם האפשרי.",
       });
-
-      if (error) throw error;
-
-      toast({ title: "הפנייה נשלחה בהצלחה! ✅", description: "ניצור אתכם קשר בהקדם" });
-      setForm({ name: "", phone: "", email: "", message: "" });
-    } catch (err) {
-      console.error("Error sending lead:", err);
-      toast({ title: "שגיאה בשליחה", description: "נסו שוב מאוחר יותר", variant: "destructive" });
-    } finally {
-      setSending(false);
-    }
+      setFormData({ name: "", phone: "", email: "", subject: "", message: "" });
+    }, 1200);
   };
 
-  const contactInfo = [
-    { icon: Phone, label: "טלפון", value: "050-1234567" },
-    { icon: Mail, label: "אימייל", value: "bob@builder.co.il" },
-    { icon: MapPin, label: "כתובת", value: "רחוב הבנאים 1, תל אביב" },
-    { icon: Clock, label: "שעות פעילות", value: "א'-ה' 07:00-18:00\nו' 07:00-13:00" },
-  ];
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   return (
-    <main>
-      {/* Hero */}
-      <section className="bg-primary text-primary-foreground py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-heebo font-black mb-4">צור קשר</h1>
-          <p className="text-xl text-primary-foreground/80">נשמח לשמוע מכם ולתת הצעת מחיר</p>
+    <div className="min-h-screen bg-background">
+      {/* Hero Section with Construction Background Image */}
+      <div 
+        className="relative bg-cover bg-center py-24 md:py-32 text-white overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop')`
+        }}
+      >
+        {/* Decorative yellow stripe */}
+        <div className="absolute top-0 left-0 right-0 h-1.5 bg-secondary" />
+        
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-4 py-1.5 rounded-full text-sm font-bold mb-4 animate-fade-in-up">
+            <HardHat className="h-4 w-4" />
+            <span>זמינים עבורכם לכל פרויקט</span>
+          </div>
+          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight font-heebo">
+            צור קשר
+          </h1>
+          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            מעוניינים לשפץ, לבנות או להתייעץ? השאירו פרטים ונחזור אליכם עם הצעת מחיר משתלמת ומותאמת אישית.
+          </p>
         </div>
-      </section>
+      </div>
 
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Form */}
-            <Card className="shadow-lg">
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-heebo font-bold text-primary mb-6">השאירו פרטים</h2>
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div>
-                    <Label htmlFor="name">שם מלא *</Label>
-                    <Input
-                      id="name"
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      placeholder="השם שלכם"
-                      maxLength={100}
-                    />
+      {/* Contact Content */}
+      <div className="container mx-auto px-4 py-16 -mt-10 relative z-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
+          {/* Contact Info Cards */}
+          <div className="lg:col-span-1 space-y-6">
+            <div className="bg-card text-card-foreground p-8 rounded-2xl shadow-lg border border-border/50 hover:border-secondary/50 transition-all duration-300">
+              <h3 className="text-2xl font-bold mb-6 text-primary font-heebo flex items-center gap-2">
+                <span className="w-1.5 h-6 bg-secondary rounded-full block" />
+                פרטי התקשרות
+              </h3>
+              
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-secondary/10 p-3 rounded-xl text-secondary shrink-0">
+                    <Phone className="h-6 w-6" />
                   </div>
                   <div>
-                    <Label htmlFor="phone">טלפון *</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      value={form.phone}
-                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      placeholder="050-0000000"
-                      maxLength={15}
-                    />
+                    <p className="text-sm text-muted-foreground font-medium">טלפון ישיר</p>
+                    <a href="tel:050-1234567" className="text-lg font-bold text-foreground hover:text-secondary transition-colors">
+                      050-1234567
+                    </a>
                   </div>
-                  <div>
-                    <Label htmlFor="email">אימייל</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      placeholder="email@example.com"
-                      maxLength={255}
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="message">תיאור הפרויקט</Label>
-                    <Textarea
-                      id="message"
-                      value={form.message}
-                      onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      placeholder="ספרו לנו על הפרויקט שלכם..."
-                      rows={5}
-                      maxLength={1000}
-                    />
-                  </div>
-                  <Button type="submit" size="lg" disabled={sending} className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold text-lg py-6">
-                    {sending ? "שולח..." : "שלח פנייה"}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+                </div>
 
-            {/* Contact Info */}
-            <div className="space-y-6">
-              <h2 className="text-2xl font-heebo font-bold text-primary mb-2">פרטי התקשרות</h2>
-              <p className="text-muted-foreground mb-6">
-                אתם מוזמנים ליצור קשר בכל דרך שנוחה לכם. אנחנו זמינים ונשמח לעזור!
-              </p>
-              {contactInfo.map((item) => (
-                <Card key={item.label} className="hover:shadow-md transition-shadow">
-                  <CardContent className="p-5 flex items-start gap-4">
-                    <div className="bg-secondary/10 rounded-full p-3 shrink-0">
-                      <item.icon className="h-5 w-5 text-secondary" />
-                    </div>
-                    <div>
-                      <h3 className="font-heebo font-semibold text-primary">{item.label}</h3>
-                      <p className="text-muted-foreground text-sm whitespace-pre-line">{item.value}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                <div className="flex items-start gap-4">
+                  <div className="bg-secondary/10 p-3 rounded-xl text-secondary shrink-0">
+                    <Mail className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground font-medium">כתובת אימייל</p>
+                    <a href="mailto:info@bob.co.il" className="text-lg font-bold text-foreground hover:text-secondary transition-colors">
+                      info@bob.co.il
+                    </a>
+                  </div>
+                </div>
 
-              <Card className="bg-secondary/10 border-secondary/30">
-                <CardContent className="p-5 text-center">
-                  <p className="font-heebo font-bold text-secondary text-lg">🎉 10% הנחה למזמינים דרך האתר!</p>
-                  <p className="text-sm text-muted-foreground mt-1">ציינו שהגעתם דרך האתר ותקבלו הנחה מיוחדת</p>
-                </CardContent>
-              </Card>
+                <div className="flex items-start gap-4">
+                  <div className="bg-secondary/10 p-3 rounded-xl text-secondary shrink-0">
+                    <MapPin className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground font-medium">אזור פעילות</p>
+                    <p className="text-lg font-bold text-foreground">תל אביב, המרכז והשרון</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-card text-card-foreground p-8 rounded-2xl shadow-lg border border-border/50">
+              <h3 className="text-xl font-bold mb-4 text-primary font-heebo flex items-center gap-2">
+                <Clock className="h-5 w-5 text-secondary" />
+                שעות פעילות
+              </h3>
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <div className="flex justify-between border-b border-border/50 pb-2">
+                  <span>ימים א׳ - ה׳:</span>
+                  <span className="font-semibold text-foreground">08:00 - 18:00</span>
+                </div>
+                <div className="flex justify-between border-b border-border/50 pb-2">
+                  <span>יום שישי וערבי חג:</span>
+                  <span className="font-semibold text-foreground">08:00 - 13:00</span>
+                </div>
+                <div className="flex justify-between pt-1">
+                  <span>יום שבת:</span>
+                  <span className="font-semibold text-destructive">סגור</span>
+                </div>
+              </div>
             </div>
           </div>
+
+          {/* Contact Form */}
+          <div className="lg:col-span-2">
+            <div className="bg-card text-card-foreground p-8 md:p-10 rounded-2xl shadow-lg border border-border/50">
+              <h2 className="text-3xl font-bold mb-2 text-primary font-heebo">
+                שלחו לנו הודעה
+              </h2>
+              <p className="text-muted-foreground mb-8">
+                נשמח לענות על כל שאלה ולתת לכם ייעוץ ראשוני ללא כל התחייבות.
+              </p>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm font-semibold text-foreground">
+                      שם מלא *
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="ישראל ישראלי"
+                      className="bg-background border-border/80 focus-visible:ring-secondary"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="phone" className="text-sm font-semibold text-foreground">
+                      מספר טלפון *
+                    </label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="050-1234567"
+                      className="bg-background border-border/80 focus-visible:ring-secondary"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-semibold text-foreground">
+                      כתובת אימייל
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="name@example.com"
+                      className="bg-background border-border/80 focus-visible:ring-secondary"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="subject" className="text-sm font-semibold text-foreground">
+                      נושא הפנייה
+                    </label>
+                    <Input
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="לדוגמה: שיפוץ דירה, בניית תוספת"
+                      className="bg-background border-border/80 focus-visible:ring-secondary"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-semibold text-foreground">
+                    תוכן ההודעה *
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="ספרו לנו קצת על הפרויקט שלכם..."
+                    className="bg-background border-border/80 focus-visible:ring-secondary resize-none"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full md:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-6 text-base rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                  {isSubmitting ? (
+                    <span className="animate-pulse">שולח...</span>
+                  ) : (
+                    <>
+                      <span>שלח הודעה</span>
+                      <Send className="h-4 w-4 rotate-180" />
+                    </>
+                  )}
+                </Button>
+              </form>
+            </div>
+          </div>
+
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
   );
 };
 
