@@ -89,4 +89,57 @@ const Index = () => {
               { num: "24/7", label: "זמינות" },
             ].map((stat) => (
               <div key={stat.label}>
-                <div className=
+                <div className="text-6xl md:text-7xl font-heebo font-black text-secondary mb-3">{stat.num}</div>
+                <div className="text-lg md:text-xl text-primary-foreground/80">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-muted/40">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-heebo font-bold text-center text-primary mb-12">
+            לקוחות ממליצים
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((t) => (
+              <Card key={t.name} className="border-t-4 border-t-secondary">
+                <CardContent className="p-6">
+                  <Quote className="h-8 w-8 text-secondary/40 mb-3" />
+                  <p className="text-muted-foreground mb-4 leading-relaxed">{t.text}</p>
+                  <div className="flex items-center gap-1 mb-2">
+                    {Array.from({ length: t.rating }).map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-secondary text-secondary" />
+                    ))}
+                  </div>
+                  <div className="font-heebo font-bold text-primary">{t.name}</div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-heebo font-bold text-primary mb-4">
+            מוכנים להתחיל בפרויקט שלכם?
+          </h2>
+          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+            השאירו פרטים ונחזור אליכם עם הצעת מחיר מותאמת אישית, ללא התחייבות.
+          </p>
+          <Link to="/contact">
+            <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold text-lg px-8 py-6">
+              קבל הצעת מחיר חינם
+            </Button>
+          </Link>
+        </div>
+      </section>
+    </main>
+  );
+};
+
+export default Index;
