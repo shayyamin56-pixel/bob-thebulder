@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin, HardHat, ArrowUp, Clock, Facebook, Instagram } fro
 const Footer = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-  return (
+  return ( 
     <footer className="bg-primary text-primary-foreground relative overflow-hidden">
       {/* Decorative top border */}
       <div className="h-1.5 bg-gradient-to-r from-secondary via-accent to-secondary" />
@@ -57,17 +57,17 @@ const Footer = () => {
               צור קשר
             </h3>
             <div className="space-y-4">
-              <a href="tel:050-1234567" className="flex items-center gap-3 text-sm text-primary-foreground/60 hover:text-secondary transition-colors group">
+              <a href="tel:05235466" className="flex items-center gap-3 text-sm text-primary-foreground/60 hover:text-secondary transition-colors group">
                 <div className="bg-primary-foreground/10 group-hover:bg-secondary/20 rounded-lg p-2 transition-colors">
                   <Phone className="h-4 w-4" />
                 </div>
-                <span>050-1234567</span>
+                <span>052-35466</span>
               </a>
-              <a href="mailto:bob@builder.co.il" className="flex items-center gap-3 text-sm text-primary-foreground/60 hover:text-secondary transition-colors group">
+              <a href="mailto:shahy@gmail.com" className="flex items-center gap-3 text-sm text-primary-foreground/60 hover:text-secondary transition-colors group">
                 <div className="bg-primary-foreground/10 group-hover:bg-secondary/20 rounded-lg p-2 transition-colors">
                   <Mail className="h-4 w-4" />
                 </div>
-                <span>bob@builder.co.il</span>
+                <span>shahy@gmail.com</span>
               </a>
               <div className="flex items-center gap-3 text-sm text-primary-foreground/60">
                 <div className="bg-primary-foreground/10 rounded-lg p-2">
@@ -90,8 +90,7 @@ const Footer = () => {
                   <Clock className="h-4 w-4" />
                 </div>
                 <div>
-                  <p>ראשון - חמישי: 07:00-18:00</p>
-                  <p>שישי: 07:00-13:00</p>
+                  <p>עובדים שבע ימים בשבוע</p>
                 </div>
               </div>
             </div>
@@ -101,7 +100,7 @@ const Footer = () => {
               to="/contact"
               className="mt-6 inline-flex items-center gap-2 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold text-sm px-5 py-2.5 rounded-lg transition-colors"
             >
-              קבל הצעת מחיר →
+              קבל הצעת מחיר ←
             </Link>
           </div>
         </div>
@@ -113,10 +112,10 @@ const Footer = () => {
           </p>
           <button
             onClick={scrollToTop}
-            aria-label="חזור למעלה"
-            className="bg-primary-foreground/10 hover:bg-secondary/30 transition-colors rounded-full p-2 group"
+            className="bg-primary-foreground/10 hover:bg-secondary hover:text-secondary-foreground transition-all rounded-lg p-2.5 group flex items-center gap-2 text-xs"
           >
-            <ArrowUp className="h-4 w-4 text-primary-foreground/60 group-hover:text-secondary transition-colors" />
+            <span>חזרה למעלה</span>
+            <ArrowUp className="h-4 w-4 transition-transform group-hover:-translate-y-1" />
           </button>
         </div>
       </div>
