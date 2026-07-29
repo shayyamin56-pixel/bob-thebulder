@@ -7,7 +7,7 @@ const About = () => {
       <div 
         className="relative bg-cover bg-center py-24 md:py-32 text-white"
         style={{ 
-          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), url('/__l5e/assets-v1/4c04f7a5-fbdc-4e6c-bce3-061b25b4a0a5/hero-bg.jpg')` 
+          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1400&auto=format&fit=crop')` 
         }}
       >
         <div className="container mx-auto px-4 text-center relative z-10">
@@ -47,20 +47,4 @@ const About = () => {
               <p className="text-xs text-muted-foreground">מרוצים וממליצים בכל הארץ</p>
             </div>
             <div className="bg-card p-6 rounded-2xl border shadow-sm text-center">
-              <ShieldCheck className="h-10 w-10 text-secondary mx-auto mb-3" />
-              <h3 className="font-bold text-lg text-primary mb-1">100% אחריות</h3>
-              <p className="text-xs text-muted-foreground">על כל עבודה ורמת גימור</p>
-            </div>
-            <div className="bg-card p-6 rounded-2xl border shadow-sm text-center">
-              <Clock className="h-10 w-10 text-secondary mx-auto mb-3" />
-              <h3 className="font-bold text-lg text-primary mb-1">עמידה בזמנים</h3>
-              <p className="text-xs text-muted-foreground">התחייבות ללוח זמנים מדויק</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default About;
+              <ShieldCheck className=
