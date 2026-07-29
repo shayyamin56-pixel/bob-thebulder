@@ -1,95 +1,65 @@
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Shield, Clock, ThumbsUp, Award, Users, CheckCircle } from "lucide-react";
-
-const values = [
-  { icon: Shield, title: "אמינות", desc: "עומדים בהבטחות, בלוחות זמנים ובתקציב המוסכם" },
-  { icon: Award, title: "מקצועיות", desc: "צוות מיומן עם הכשרה מקצועית וניסיון רב" },
-  { icon: ThumbsUp, title: "מחירים הוגנים", desc: "הצעות מחיר שקופות ללא הפתעות. תמורה מלאה לכספכם" },
-  { icon: Clock, title: "עמידה בזמנים", desc: "מסיימים בזמן שנקבע, ללא עיכובים מיותרים" },
-  { icon: Users, title: "שירות אישי", desc: "ליווי צמוד לאורך כל הפרויקט, מהתכנון ועד הגימור" },
-  { icon: CheckCircle, title: "אחריות מלאה", desc: "אחריות על כל העבודות שלנו, שקט נפשי מובטח" },
-];
+import { HardHat, Award, Users, ShieldCheck, Clock } from "lucide-react";
 
 const About = () => {
   return (
-    <main>
-      {/* Hero */}
-      <section className="bg-primary text-primary-foreground py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-heebo font-black mb-4">אודות בוב הבנאי</h1>
-          <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto">
-            מעל 15 שנות ניסיון בבנייה ושיפוצים ברחבי הארץ
+    <div className="min-h-screen bg-background">
+      {/* Hero Section with Background Image */}
+      <div 
+        className="relative bg-cover bg-center py-24 md:py-32 text-white"
+        style={{ 
+          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), url('/__l5e/assets-v1/4c04f7a5-fbdc-4e6c-bce3-061b25b4a0a5/hero-bg.jpg')` 
+        }}
+      >
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <span className="bg-secondary text-secondary-foreground px-4 py-1.5 rounded-full text-sm font-bold inline-block mb-4 animate-fade-in-up">
+            קצת עלינו
+          </span>
+          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight animate-fade-in-up">
+            בוב הבנאי - בונים את העתיד שלכם
+          </h1>
+          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed animate-fade-in-up">
+            למעלה מ-15 שנות ניסיון של מצוינות, אמינות ומקצועיות ללא פשרות בענף הבנייה והשיפוצים בישראל.
           </p>
         </div>
-      </section>
+      </div>
 
-      {/* Story */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-heebo font-bold text-primary mb-6">הסיפור שלנו</h2>
-            <div className="space-y-4 text-foreground/80 leading-relaxed text-lg">
-              <p>
-                בוב הבנאי הוקמה לפני למעלה מ-15 שנה מתוך אהבה אמיתית למלאכת הבנייה והשיפוץ.
-                מה שהתחיל כעסק קטן של אדם אחד, הפך לחברה מובילה בתחום הבנייה והשיפוצים בישראל.
-              </p>
-              <p>
-                לאורך השנים צברנו ניסיון רב במגוון רחב של פרויקטים - משיפוץ דירות ובתים פרטיים,
-                דרך בניית תוספות והרחבות, ועד פרויקטים מסחריים. כל פרויקט מלווה בתשומת לב לפרטים,
-                מקצועיות ללא פשרות ומחויבות לשביעות רצון הלקוח.
-              </p>
-              <p>
-                אנחנו מאמינים שכל בית ראוי לטיפול מקצועי ואיכותי. הצוות שלנו מורכב מאנשי מקצוע
-                מנוסים ומיומנים, המחויבים לספק תוצאות ברמה הגבוהה ביותר.
-              </p>
+      {/* Content Section */}
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+          <div>
+            <h2 className="text-3xl font-bold text-primary mb-6">הסיפור שלנו</h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              חברת "בוב הבנאי" הוקמה מתוך חזון להביא סטנדרט חדש של איכות, שקיפות ומקצועיות לעולם השיפוצים והבנייה בישראל. אנו מאמינים שבית הוא לא רק קירות, אלא המקום הבטוח והחם שלכם, ולכן אנו מתייחסים לכל פרויקט כאילו היה הבית הפרטי שלנו.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              במהלך השנים ביצענו מאות פרויקטים מושקעים - החל משיפוצי קוסמטיקה קלים ועד לבנייה מאפס ושיפוצים קומפלט של דירות יוקרה, משרדים וחנויות. הצוות שלנו מורכב מאנשי המקצוע המובילים בתחומם, המחויבים לרמת הגימור הגבוהה ביותר ולעמידה קפדנית בלוחות הזמנים.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-card p-6 rounded-2xl border shadow-sm text-center">
+              <Award className="h-10 w-10 text-secondary mx-auto mb-3" />
+              <h3 className="font-bold text-lg text-primary mb-1">15+ שנות ניסיון</h3>
+              <p className="text-xs text-muted-foreground">של עבודה מקצועית בשטח</p>
+            </div>
+            <div className="bg-card p-6 rounded-2xl border shadow-sm text-center">
+              <Users className="h-10 w-10 text-secondary mx-auto mb-3" />
+              <h3 className="font-bold text-lg text-primary mb-1">500+ לקוחות</h3>
+              <p className="text-xs text-muted-foreground">מרוצים וממליצים בכל הארץ</p>
+            </div>
+            <div className="bg-card p-6 rounded-2xl border shadow-sm text-center">
+              <ShieldCheck className="h-10 w-10 text-secondary mx-auto mb-3" />
+              <h3 className="font-bold text-lg text-primary mb-1">100% אחריות</h3>
+              <p className="text-xs text-muted-foreground">על כל עבודה ורמת גימור</p>
+            </div>
+            <div className="bg-card p-6 rounded-2xl border shadow-sm text-center">
+              <Clock className="h-10 w-10 text-secondary mx-auto mb-3" />
+              <h3 className="font-bold text-lg text-primary mb-1">עמידה בזמנים</h3>
+              <p className="text-xs text-muted-foreground">התחייבות ללוח זמנים מדויק</p>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Values */}
-      <section className="py-20 bg-muted">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-heebo font-bold text-center text-primary mb-12">
-            למה לבחור בנו?
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {values.map((v) => (
-              <Card key={v.title} className="hover:shadow-lg transition-shadow border-r-4 border-r-secondary">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-secondary/10 rounded-full p-3 shrink-0">
-                      <v.icon className="h-6 w-6 text-secondary" />
-                    </div>
-                    <div>
-                      <h3 className="font-heebo font-bold text-lg text-primary mb-1">{v.title}</h3>
-                      <p className="text-muted-foreground text-sm">{v.desc}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 bg-secondary">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-heebo font-bold text-secondary-foreground mb-4">
-            רוצים לשמוע עוד?
-          </h2>
-          <p className="text-secondary-foreground/80 mb-8 text-lg">נשמח לספר לכם עוד ולתת הצעת מחיר</p>
-          <Link to="/contact">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg px-10 py-6">
-              צור קשר
-            </Button>
-          </Link>
-        </div>
-      </section>
-    </main>
+      </div>
+    </div>
   );
 };
 
