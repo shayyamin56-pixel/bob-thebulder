@@ -18,14 +18,14 @@
     --primary: 215 70% 22%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 142 76% 36%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 48 96% 48%;
+    --secondary-foreground: 215 40% 12%;
 
     --muted: 210 20% 94%;
     --muted-foreground: 215 15% 45%;
 
-    --accent: 142 72% 29%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 45 93% 38%;
+    --accent-foreground: 215 40% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -58,13 +58,13 @@
     --card-foreground: 210 40% 98%;
     --popover: 215 40% 12%;
     --popover-foreground: 210 40% 98%;
-    --primary: 142 76% 36%;
+    --primary: 48 96% 48%;
     --primary-foreground: 215 40% 12%;
     --secondary: 215 70% 22%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 142 72% 29%;
+    --accent: 45 93% 38%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
