@@ -1,116 +1,39 @@
+import { HeroScrollDemo } from "@/components/HeroScrollDemo";
+import { AboutSection } from "@/components/AboutSection";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Home, Wrench, PaintBucket, Building2, Star, Quote, ArrowLeft } from "lucide-react";
-import { HeroScrollDemo } from "@/components/HeroScrollDemo";
+import { ArrowLeft, Phone } from "lucide-react";
 
-const services = [
-  { icon: Home, title: "שיפוצים כלליים", desc: "שיפוץ דירות ובתים מקצה לקצה, כולל תכנון וביצוע" },
-  { icon: Building2, title: "בנייה", desc: "בניית מבנים חדשים, תוספות בנייה והרחבות" },
-  { icon: Wrench, title: "תיקונים", desc: "תיקוני אינסטלציה, חשמל, ריצוף ועוד" },
-  { icon: PaintBucket, title: "צביעה וגימור", desc: "עבודות צביעה פנים וחוץ, גבס וגימורים" },
-];
-
-const testimonials = [
-  { name: "יוסי כהן", text: "בוב עשה לנו שיפוץ מדהים בדירה. מקצועי, אמין ובזמן. ממליץ בחום!", rating: 5 },
-  { name: "רחל לוי", text: "הרחבנו את הבית ובוב ניהל את הפרויקט מצוין. תוצאה מושלמת!", rating: 5 },
-  { name: "דוד אברהם", text: "תיקון מהיר ומקצועי. מחיר הוגן ושירות מעולה. תודה בוב!", rating: 5 },
-];
-
-const Index = () => {
+export default function Index() {
   return (
-    <main className="min-h-screen bg-background">
-      {/* Hero Scroll Section */}
+    <div className="min-h-screen bg-background">
       <HeroScrollDemo />
-
-      {/* Services Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-4">
-            השירותים שלנו
-          </h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
-            מגוון רחב של שירותי בנייה ושיפוצים לכל צורך
+      <AboutSection />
+      
+      {/* CTA Section */}
+      <section className="py-16 bg-primary text-primary-foreground relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-black mb-4">מוכנים להתחיל את פרויקט החלומות שלכם?</h2>
+          <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto mb-8">
+            צרו קשר עוד היום לפגישת ייעוץ ראשונית ללא התחייבות. אנחנו כאן כדי להגשים לכם את החלום!
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service) => (
-              <Card key={service.title} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-t-secondary">
-                <CardContent className="p-6 text-center">
-                  <div className="mx-auto mb-4 bg-secondary/10 rounded-full p-4 w-fit group-hover:bg-secondary/20 transition-colors">
-                    <service.icon className="h-8 w-8 text-secondary" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2 text-primary">{service.title}</h3>
-                  <p className="text-muted-foreground text-sm">{service.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link to="/contact">
+              <Button size="lg" variant="secondary" className="font-bold gap-2">
+                <Phone className="h-5 w-5" />
+                דברו איתנו עכשיו
+              </Button>
+            </Link>
+            <Link to="/about">
+              <Button size="lg" variant="outline" className="bg-transparent text-primary-foreground border-primary-foreground/30 hover:bg-primary-foreground/10 font-bold gap-2">
+                קראו עוד עלינו
+                <ArrowLeft className="h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
-
-      {/* Stats */}
-      <section className="py-24 text-primary-foreground bg-primary">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-            {[
-              { num: "15+", label: "שנות ניסיון" },
-              { num: "500+", label: "פרויקטים" },
-              { num: "100%", label: "שביעות רצון" },
-              { num: "24/7", label: "זמינות" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <div className="text-6xl md:text-7xl font-black text-secondary mb-3">{stat.num}</div>
-                <div className="text-lg md:text-xl text-primary-foreground/80">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20 bg-muted/40">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">
-            לקוחות ממליצים
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <Card key={t.name} className="border-t-4 border-t-secondary">
-                <CardContent className="p-6">
-                  <Quote className="h-8 w-8 text-secondary/40 mb-3" />
-                  <p className="text-muted-foreground mb-4 leading-relaxed">{t.text}</p>
-                  <div className="flex items-center gap-1 mb-2">
-                    {Array.from({ length: t.rating }).map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-secondary text-secondary" />
-                    ))}
-                  </div>
-                  <div className="font-bold text-primary">{t.name}</div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            מוכנים להתחיל את הפרויקט שלכם?
-          </h2>
-          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-            צרו איתנו קשר עוד היום לקבלת ייעוץ ראשוני והצעת מחיר מותאמת אישית ללא כל התחייבות.
-          </p>
-          <Link to="/contact">
-            <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold text-lg px-8 py-6 gap-2">
-              <span>צור קשר עכשיו</span>
-              <ArrowLeft className="h-5 w-5" />
-            </Button>
-          </Link>
-        </div>
-      </section>
-    </main>
+    </div>
   );
-};
-
-export default Index;
+}
