@@ -22,7 +22,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 text-xl font-bold">
           <HardHat className="h-6 w-6 text-secondary" />
-          <span>בוב הבנאי</span>
+          <span>רוי המלך</span>
         </Link>
         <div className="hidden md:flex items-center gap-6">
           {links.map((link) => (

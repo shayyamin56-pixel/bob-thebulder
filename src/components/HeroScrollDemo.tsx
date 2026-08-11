@@ -1,7 +1,7 @@
 import React from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 
-export function HeroScrollDemo() {
+export function HeroScrollDemo() { 
   return (
     <div className="flex flex-col overflow-hidden bg-background">
       <ContainerScroll
@@ -11,7 +11,7 @@ export function HeroScrollDemo() {
               בנייה ושיפוצים ברמה הגבוהה ביותר
             </span>
             <h1 className="text-4xl md:text-7xl font-black text-primary leading-tight">
-              הבית שלכם בידיים מקצועיות <br />
+              רוי המלך <br />
               <span className="text-3xl md:text-5xl font-bold text-secondary mt-2 block">
                 משלב התכנון ועד למפתח
               </span>
